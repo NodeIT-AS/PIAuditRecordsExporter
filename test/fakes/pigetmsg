@@ -1,0 +1,51 @@
+#!/bin/bash
+# Fake pigetmsg: emulates "pigetmsg -st <start> -et <end> -fx [-oa] [-si|-sw|-se|-sc] [extra]".
+# Envelope, message element and field names are copied from real -fx -oa output captured on NODEITPI 2026-09-17.
+# Message file (env FAKE_MSG_FILE), one message per line: yyyy-MM-dd HH:mm:ss;severity;process;text
+# Behaviour switches (env): FAKE_PIGETMSG_FAIL=<code> -> "[code]" text, exit 0; FAKE_PIGETMSG_ARGS_LOG -> appends the argument line
+st=""; et=""; fmt=""; minsev=0
+allargs="$*"
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -st) st="$2"; shift 2;; -et) et="$2"; shift 2;; -fx) fmt=xml; shift;; -oa) shift;;
+    -si) minsev=1; shift;; -sw) minsev=2; shift;; -se) minsev=3; shift;; -sc) minsev=4; shift;;
+    *) shift;;
+  esac
+done
+[ -n "$FAKE_PIGETMSG_ARGS_LOG" ] && echo "$allargs" >> "$FAKE_PIGETMSG_ARGS_LOG"
+[ -n "$FAKE_PIGETMSG_FAIL" ] && { echo "[$FAKE_PIGETMSG_FAIL] Simulated pigetmsg failure"; exit 0; }
+file="${FAKE_MSG_FILE:-/nonexistent}"
+sts=0; ets=9999999999
+[ -n "$st" ] && sts=$(date -d "$st" +%s)
+[ -n "$et" ] && ets=$(date -d "$et" +%s)
+sevnum() { case "$1" in Debug) echo 0;; Informational|Information) echo 1;; Warning) echo 2;; Error) echo 3;; Critical) echo 4;; *) echo 0;; esac; }
+CR=$'\r'
+out='<?xml version="1.0" standalone="no"?>'"$CR"$'\n'
+out+="<PIMessages Type=\"I_LIVE\" MachineName=\"nodeitpi\" Collective=\"\" CultureInfo=\"en-US\">$CR"$'\n'"<PIMessageList>$CR"$'\n'
+n=0
+if [ -f "$file" ]; then
+  while IFS=';' read -r ts sev proc text; do
+    [ -z "$ts" ] && continue
+    t=$(date -d "$ts" +%s)
+    [ "$t" -lt "$sts" ] && continue
+    [ "$t" -gt "$ets" ] && continue
+    [ "$(sevnum "$sev")" -lt "$minsev" ] && continue
+    pt=$(date -d "$ts" '+%d-%b-%y %H:%M:%S')
+    out+="<PIMessage>$CR"$'\n'
+    out+="<ProcessHost>localhost</ProcessHost>$CR"$'\n'
+    out+="<MessageTime>$pt</MessageTime>$CR"$'\n'
+    out+="<ProcessName>$proc</ProcessName>$CR"$'\n'
+    out+="<User>$proc</User>$CR"$'\n'
+    out+="<MessageID>7004</MessageID>$CR"$'\n'
+    out+="<Message>$text</Message>$CR"$'\n'
+    out+="<MessageSeverity>$sev</MessageSeverity>$CR"$'\n'
+    out+="<PID>4560</PID>$CR"$'\n'
+    out+="<ProcessOSUser>$proc</ProcessOSUser>$CR"$'\n'
+    out+="<Priority>10</Priority>$CR"$'\n'
+    [ -n "$FAKE_PIGETMSG_EXTRA" ] && out+="<Correlation>abc123</Correlation>$CR"$'\n'
+    out+="</PIMessage>$CR"$'\n'
+    n=$((n+1))
+  done < "$file"
+fi
+out+="</PIMessageList>$CR"$'\n'"</PIMessages>$CR"$'\n'
+printf '%s' "$out"

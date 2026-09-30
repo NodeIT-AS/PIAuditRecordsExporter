@@ -1,0 +1,21 @@
+#!/bin/bash
+# Fake piartool: -systembackup start|end -subsystem <name>, -backup -query
+# env: FAKE_PIARTOOL_LOG, FAKE_MARKER_DIR, FAKE_PIARTOOL_FAIL_START=<sub>, FAKE_PIARTOOL_FAIL_END=<sub>, FAKE_ASSERT_COPY=<workdir>
+log="${FAKE_PIARTOOL_LOG:-/tmp/fake_piartool.log}"
+echo "$(date +%s.%N) $*" >> "$log"
+case "$1" in
+  -systembackup)
+    sub="$4"
+    if [ "$2" = "start" ]; then
+      [ "$FAKE_PIARTOOL_FAIL_START" = "$sub" ] && { echo "[-10401] A backup is already in progress"; exit 1; }
+      [ -n "$FAKE_MARKER_DIR" ] && touch "$FAKE_MARKER_DIR/backupmode_$sub"
+      echo "Subsystem $sub is now in backup mode"; exit 0
+    else
+      [ "$FAKE_PIARTOOL_FAIL_END" = "$sub" ] && { echo "[-10402] Unable to end backup mode"; exit 1; }
+      if [ -n "$FAKE_ASSERT_COPY" ] && [ ! -f "$FAKE_ASSERT_COPY/$sub/${sub}Audit.dat" ]; then echo "[-1] ORDERING VIOLATION: copy not present when backup mode ended"; exit 1; fi
+      [ -n "$FAKE_MARKER_DIR" ] && rm -f "$FAKE_MARKER_DIR/backupmode_$sub"
+      echo "Subsystem $sub backup mode ended"; exit 0
+    fi;;
+  -backup) echo "Backup is not in progress. Last backup completed ${FAKE_LAST_BACKUP:-never}."; exit 0;;
+  *) echo "Unknown option"; exit 1;;
+esac

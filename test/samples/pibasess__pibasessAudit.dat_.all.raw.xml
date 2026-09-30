@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PIAudit xmlns="xml.osisoft.com-schemas-piaudit" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="xml.osisoft.com-schemas-piaudit http://xml.osisoft.com/Schemas/PIAudit">
+<PIServer IPHost="nodeitpi" IPAddress="192.168.100.100"/>
+<ExportDate UTCSeconds="1789558907" LocalDate="2026-09-16T13:41:47+02:00"/>
+<OSUser Domain="NODEITLAB" Name="dannar" />
+<AuditRecords ExportFileName="F:\logs\Work\inspect\pibasess\pibasessAudit.dat" RecordCount="3" AuditFileName="C:\Program Files\PI\log\pibasessAudit.dat" CreationDate="2026-06-12T13:04:53+02:00" Mask="ffffffffh">
+
+<AuditRecord AuditRecordID="20691fd0-93fd-4d10-849f-f731bd700e47">
+<PIUser UserID="22" Name="NODEITLAB\simen"/>
+<PITime UTCSeconds="1786013521" LocalDate="2026-08-06T12:52:01+02:00" />
+<PIConfigurationDB>
+<PIPoints Action="Add">
+<PIPoint PointID="17838" Name="Scheduled plan transfer 15min1.Output">
+<Name>
+<After Type="xs:string">Scheduled plan transfer 15min1.Output</After>
+</Name>
+<PointClass>
+<After Type="xs:string">classic</After>
+</PointClass>
+<PointType>
+<After Type="piaudit:unsignedint8Type">12</After>
+</PointType>
+<PointAttributes>
+<PointAttribute Name="archiving">
+<Value>
+<After Type="piaudit:int8Type">1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="changedate">
+<Value>
+<After Type="xs:dateTime">2026-08-06T12:52:01+02:00</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="changer">
+<Value>
+<After Type="xs:string">NODEITLAB\simen</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compdev">
+<Value>
+<After Type="xs:float">0.2</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compdevpercent">
+<Value>
+<After Type="xs:float">0.2</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compmax">
+<Value>
+<After Type="xs:unsignedlong">28800</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compmin">
+<Value>
+<After Type="xs:unsignedshort">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compressing">
+<Value>
+<After Type="piaudit:int8Type">1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="convers">
+<Value>
+<After Type="xs:float">1.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="creationdate">
+<Value>
+<After Type="xs:dateTime">2026-08-06T12:52:01+02:00</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="creator">
+<Value>
+<After Type="xs:string">NODEITLAB\simen</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="dataaccess">
+<Value>
+<After Type="xs:string">o: g: w:</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="datagroup">
+<Value>
+<After Type="xs:string">PIGroupIncompatible</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="dataowner">
+<Value>
+<After Type="xs:string">PIUserIncompatible</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="datasecurity">
+<Value>
+<After Type="xs:string">piadmin: A(r,w) | piadmins: A(r,w) | IFnode: A(r) | PIWorld: A(r)</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="descriptor">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="digitalset">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="displaydigits">
+<Value>
+<After Type="piaudit:int8Type">-5</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="engunits">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="excdev">
+<Value>
+<After Type="xs:float">0.1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="excdevpercent">
+<Value>
+<After Type="xs:float">0.1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="excmax">
+<Value>
+<After Type="xs:unsignedlong">600</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="excmin">
+<Value>
+<After Type="xs:unsignedshort">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="exdesc">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="filtercode">
+<Value>
+<After Type="xs:short">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="future">
+<Value>
+<After Type="piaudit:unsignedint8Type">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="instrumenttag">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location1">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location2">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location3">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location4">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location5">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="pointid">
+<Value>
+<After Type="xs:unsignedlong">17838</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="pointsource">
+<Value>
+<After Type="xs:string">L</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptaccess">
+<Value>
+<After Type="xs:string">o: g: w:</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptclassid">
+<Value>
+<After Type="xs:unsignedlong">2</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptclassrev">
+<Value>
+<After Type="xs:unsignedlong">1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptgroup">
+<Value>
+<After Type="xs:string">PIGroupIncompatible</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptowner">
+<Value>
+<After Type="xs:string">PIUserIncompatible</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptsecurity">
+<Value>
+<After Type="xs:string">piadmin: A(r,w) | piadmins: A(r,w) | IFnode: A(r) | PIWorld: A(r)</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="recno">
+<Value>
+<After Type="xs:unsignedlong">3043</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="scan">
+<Value>
+<After Type="piaudit:int8Type">1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="shutdown">
+<Value>
+<After Type="piaudit:int8Type">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="sourcetag">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="span">
+<Value>
+<After Type="xs:float">100.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="squareroot">
+<Value>
+<After Type="xs:short">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="srcptid">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="step">
+<Value>
+<After Type="piaudit:int8Type">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="totalcode">
+<Value>
+<After Type="xs:short">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="typicalvalue">
+<Value>
+<After Type="xs:float">50.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="userint1">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="userint2">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="userreal1">
+<Value>
+<After Type="xs:float">0.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="userreal2">
+<Value>
+<After Type="xs:float">0.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="zero">
+<Value>
+<After Type="xs:float">0.</After>
+</Value>
+</PointAttribute>
+</PointAttributes>
+</PIPoint>
+</PIPoints>
+</PIConfigurationDB>
+</AuditRecord>
+
+<AuditRecord AuditRecordID="cc86a31b-b8d0-4f7a-b8c1-5348e47c21a5">
+<PIUser UserID="22" Name="NODEITLAB\simen"/>
+<PITime UTCSeconds="1786353893" LocalDate="2026-08-10T11:24:53+02:00" />
+<PIConfigurationDB>
+<PIPoints Action="Add">
+<PIPoint PointID="17839" Name="15 minute plan transfer duplicate surpression.Output">
+<Name>
+<After Type="xs:string">15 minute plan transfer duplicate surpression.Output</After>
+</Name>
+<PointClass>
+<After Type="xs:string">classic</After>
+</PointClass>
+<PointType>
+<After Type="piaudit:unsignedint8Type">12</After>
+</PointType>
+<PointAttributes>
+<PointAttribute Name="archiving">
+<Value>
+<After Type="piaudit:int8Type">1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="changedate">
+<Value>
+<After Type="xs:dateTime">2026-08-10T11:24:53+02:00</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="changer">
+<Value>
+<After Type="xs:string">NODEITLAB\simen</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compdev">
+<Value>
+<After Type="xs:float">0.2</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compdevpercent">
+<Value>
+<After Type="xs:float">0.2</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compmax">
+<Value>
+<After Type="xs:unsignedlong">28800</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compmin">
+<Value>
+<After Type="xs:unsignedshort">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compressing">
+<Value>
+<After Type="piaudit:int8Type">1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="convers">
+<Value>
+<After Type="xs:float">1.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="creationdate">
+<Value>
+<After Type="xs:dateTime">2026-08-10T11:24:53+02:00</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="creator">
+<Value>
+<After Type="xs:string">NODEITLAB\simen</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="dataaccess">
+<Value>
+<After Type="xs:string">o: g: w:</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="datagroup">
+<Value>
+<After Type="xs:string">PIGroupIncompatible</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="dataowner">
+<Value>
+<After Type="xs:string">PIUserIncompatible</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="datasecurity">
+<Value>
+<After Type="xs:string">piadmin: A(r,w) | piadmins: A(r,w) | IFnode: A(r) | PIWorld: A(r)</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="descriptor">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="digitalset">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="displaydigits">
+<Value>
+<After Type="piaudit:int8Type">-5</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="engunits">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="excdev">
+<Value>
+<After Type="xs:float">0.1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="excdevpercent">
+<Value>
+<After Type="xs:float">0.1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="excmax">
+<Value>
+<After Type="xs:unsignedlong">600</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="excmin">
+<Value>
+<After Type="xs:unsignedshort">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="exdesc">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="filtercode">
+<Value>
+<After Type="xs:short">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="future">
+<Value>
+<After Type="piaudit:unsignedint8Type">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="instrumenttag">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location1">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location2">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location3">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location4">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location5">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="pointid">
+<Value>
+<After Type="xs:unsignedlong">17839</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="pointsource">
+<Value>
+<After Type="xs:string">L</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptaccess">
+<Value>
+<After Type="xs:string">o: g: w:</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptclassid">
+<Value>
+<After Type="xs:unsignedlong">2</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptclassrev">
+<Value>
+<After Type="xs:unsignedlong">1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptgroup">
+<Value>
+<After Type="xs:string">PIGroupIncompatible</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptowner">
+<Value>
+<After Type="xs:string">PIUserIncompatible</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptsecurity">
+<Value>
+<After Type="xs:string">piadmin: A(r,w) | piadmins: A(r,w) | IFnode: A(r) | PIWorld: A(r)</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="recno">
+<Value>
+<After Type="xs:unsignedlong">3044</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="scan">
+<Value>
+<After Type="piaudit:int8Type">1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="shutdown">
+<Value>
+<After Type="piaudit:int8Type">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="sourcetag">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="span">
+<Value>
+<After Type="xs:float">100.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="squareroot">
+<Value>
+<After Type="xs:short">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="srcptid">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="step">
+<Value>
+<After Type="piaudit:int8Type">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="totalcode">
+<Value>
+<After Type="xs:short">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="typicalvalue">
+<Value>
+<After Type="xs:float">50.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="userint1">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="userint2">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="userreal1">
+<Value>
+<After Type="xs:float">0.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="userreal2">
+<Value>
+<After Type="xs:float">0.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="zero">
+<Value>
+<After Type="xs:float">0.</After>
+</Value>
+</PointAttribute>
+</PointAttributes>
+</PIPoint>
+</PIPoints>
+</PIConfigurationDB>
+</AuditRecord>
+
+<AuditRecord AuditRecordID="539ea691-7404-498a-80cb-545f25a94e79">
+<PIUser UserID="18" Name="NODEITLAB\jouni"/>
+<PITime UTCSeconds="1787134425" LocalDate="2026-08-19T12:13:45+02:00" />
+<PIConfigurationDB>
+<PIPoints Action="Add">
+<PIPoint PointID="17840" Name="Average1.Output">
+<Name>
+<After Type="xs:string">Average1.Output</After>
+</Name>
+<PointClass>
+<After Type="xs:string">classic</After>
+</PointClass>
+<PointType>
+<After Type="piaudit:unsignedint8Type">12</After>
+</PointType>
+<PointAttributes>
+<PointAttribute Name="archiving">
+<Value>
+<After Type="piaudit:int8Type">1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="changedate">
+<Value>
+<After Type="xs:dateTime">2026-08-19T12:13:45+02:00</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="changer">
+<Value>
+<After Type="xs:string">NODEITLAB\jouni</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compdev">
+<Value>
+<After Type="xs:float">0.2</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compdevpercent">
+<Value>
+<After Type="xs:float">0.2</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compmax">
+<Value>
+<After Type="xs:unsignedlong">28800</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compmin">
+<Value>
+<After Type="xs:unsignedshort">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="compressing">
+<Value>
+<After Type="piaudit:int8Type">1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="convers">
+<Value>
+<After Type="xs:float">1.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="creationdate">
+<Value>
+<After Type="xs:dateTime">2026-08-19T12:13:45+02:00</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="creator">
+<Value>
+<After Type="xs:string">NODEITLAB\jouni</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="dataaccess">
+<Value>
+<After Type="xs:string">o: g: w:</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="datagroup">
+<Value>
+<After Type="xs:string">PIGroupIncompatible</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="dataowner">
+<Value>
+<After Type="xs:string">PIUserIncompatible</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="datasecurity">
+<Value>
+<After Type="xs:string">piadmin: A(r,w) | piadmins: A(r,w) | IFnode: A(r) | PIWorld: A(r)</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="descriptor">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="digitalset">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="displaydigits">
+<Value>
+<After Type="piaudit:int8Type">-5</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="engunits">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="excdev">
+<Value>
+<After Type="xs:float">0.1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="excdevpercent">
+<Value>
+<After Type="xs:float">0.1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="excmax">
+<Value>
+<After Type="xs:unsignedlong">600</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="excmin">
+<Value>
+<After Type="xs:unsignedshort">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="exdesc">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="filtercode">
+<Value>
+<After Type="xs:short">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="future">
+<Value>
+<After Type="piaudit:unsignedint8Type">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="instrumenttag">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location1">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location2">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location3">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location4">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="location5">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="pointid">
+<Value>
+<After Type="xs:unsignedlong">17840</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="pointsource">
+<Value>
+<After Type="xs:string">LGRID CALC</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptaccess">
+<Value>
+<After Type="xs:string">o: g: w:</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptclassid">
+<Value>
+<After Type="xs:unsignedlong">2</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptclassrev">
+<Value>
+<After Type="xs:unsignedlong">1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptgroup">
+<Value>
+<After Type="xs:string">PIGroupIncompatible</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptowner">
+<Value>
+<After Type="xs:string">PIUserIncompatible</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="ptsecurity">
+<Value>
+<After Type="xs:string">piadmin: A(r,w) | piadmins: A(r,w) | IFnode: A(r) | PIWorld: A(r)</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="recno">
+<Value>
+<After Type="xs:unsignedlong">3045</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="scan">
+<Value>
+<After Type="piaudit:int8Type">1</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="shutdown">
+<Value>
+<After Type="piaudit:int8Type">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="sourcetag">
+<Value>
+<After Type="xs:string"></After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="span">
+<Value>
+<After Type="xs:float">100.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="squareroot">
+<Value>
+<After Type="xs:short">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="srcptid">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="step">
+<Value>
+<After Type="piaudit:int8Type">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="totalcode">
+<Value>
+<After Type="xs:short">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="typicalvalue">
+<Value>
+<After Type="xs:float">50.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="userint1">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="userint2">
+<Value>
+<After Type="xs:long">0</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="userreal1">
+<Value>
+<After Type="xs:float">0.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="userreal2">
+<Value>
+<After Type="xs:float">0.</After>
+</Value>
+</PointAttribute>
+<PointAttribute Name="zero">
+<Value>
+<After Type="xs:float">0.</After>
+</Value>
+</PointAttribute>
+</PointAttributes>
+</PIPoint>
+</PIPoints>
+</PIConfigurationDB>
+</AuditRecord>
+
+<RecordsExported>3</RecordsExported>
+</AuditRecords>
+</PIAudit>

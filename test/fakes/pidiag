@@ -1,0 +1,75 @@
+#!/bin/bash
+# Fake pidiag: emulates "pidiag -xa <path> [-st <start>] [-et <end>] [-dbMask <n>]" as observed on NODEITPI.
+# Envelope and record shape (AuditRecord/@AuditRecordID, PIUser, PITime/@UTCSeconds, PIConfigurationDB or
+# PITimeSeriesDB payload, CRLF, UTF-8 declaration) are copied from real output captured on NODEITPI 2026-09-16.
+# Audit file format (one record per line): id;yyyy-MM-dd HH:mm:ss;user;action;detail
+# Behaviour switches (env): FAKE_LIVE_DIR -> [32] for paths under it; FAKE_PIDIAG_FAIL=<code> -> "[code]" text, exit 0
+#   FAKE_PIDIAG_ENCODING=ansi | ansi-nodecl ; FAKE_PIDIAG_PREAMBLE=1 ; FAKE_PIDIAG_HANG=1
+path=""; st=""; et=""; mask=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -xa) path="$2"; shift 2;; -st) st="$2"; shift 2;; -et) et="$2"; shift 2;; -dbMask) mask="$2"; shift 2;;
+    -?) echo "-xa <<path>> [-st <start>][-et <end>][-uid <unique id>][-xh <schema url>]"; exit 0;;
+    *) echo "Unknown switch $1"; exit 1;;
+  esac
+done
+[ -z "$path" ] && { echo "Usage: pidiag -xa <path>"; exit 1; }
+if [ -n "$FAKE_LIVE_DIR" ]; then case "$path" in "$FAKE_LIVE_DIR"/*) echo "[32] The process cannot access the file because it is being used by another process."; exit 0;; esac; fi
+[ -f "$path" ] || { echo "[2] The system cannot find the file specified."; exit 0; }
+[ -s "$path" ] || { echo "[38] Reached the end of the file."; exit 0; }
+[ -n "$FAKE_PIDIAG_FAIL" ] && { echo "[$FAKE_PIDIAG_FAIL] Simulated pidiag failure"; exit 0; }
+[ -n "$FAKE_PIDIAG_HANG" ] && sleep 60
+sts=0; ets=9999999999
+[ -n "$st" ] && sts=$(date -d "$st" +%s)
+[ -n "$et" ] && ets=$(date -d "$et" +%s)
+total=$(grep -c . "$path")
+CR=$'\r'
+out=""
+[ -n "$FAKE_PIDIAG_PREAMBLE" ] && out+="PI Diagnostic Utility - audit export$CR"$'\n'
+case "$FAKE_PIDIAG_ENCODING" in
+  ansi) out+="<?xml version=\"1.0\" encoding=\"windows-1252\" ?>$CR"$'\n';;
+  ansi-nodecl) ;;
+  *) out+="<?xml version=\"1.0\" encoding=\"UTF-8\" ?>$CR"$'\n';;
+esac
+now=$(date +%s)
+out+="<PIAudit xmlns=\"xml.osisoft.com-schemas-piaudit\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"xml.osisoft.com-schemas-piaudit http://xml.osisoft.com/Schemas/PIAudit\">$CR"$'\n'
+out+="<PIServer IPHost=\"nodeitpi\" IPAddress=\"192.168.100.100\"/>$CR"$'\n'
+out+="<ExportDate UTCSeconds=\"$now\" LocalDate=\"$(date -d @$now +%Y-%m-%dT%H:%M:%S%:z)\"/>$CR"$'\n'
+out+="<OSUser Domain=\"NODEITLAB\" Name=\"dannar\" />$CR"$'\n'
+out+="<AuditRecords ExportFileName=\"$path\" RecordCount=\"$total\" AuditFileName=\"C:\\Program Files\\PI\\log\\$(basename "$path")\" CreationDate=\"2026-06-12T13:04:53+02:00\" Mask=\"ffffffffh\">$CR"$'\n'
+exported=0
+case "$path" in *pisnapss*|*piarchss*) datarec=1;; *) datarec=0;; esac
+while IFS=';' read -r id ts user action detail; do
+  [ -z "$id" ] && continue
+  t=$(date -d "$ts" +%s)
+  [ "$t" -lt "$sts" ] && continue
+  [ "$t" -gt "$ets" ] && continue
+  guid=$(printf '%s' "$id" | md5sum | cut -c1-32 | sed -E 's/(.{8})(.{4})(.{4})(.{4})(.{12})/\1-\2-\3-\4-\5/')
+  local=$(date -d @$t +%Y-%m-%dT%H:%M:%S%:z)
+  out+="<AuditRecord AuditRecordID=\"$guid\">$CR"$'\n'
+  if [ -n "$FAKE_PIDIAG_EXTRA" ]; then out+="<PIUser UserID=\"17\" Name=\"$user\" Domain=\"NODEITLAB\"/>$CR"$'\n'; else out+="<PIUser UserID=\"17\" Name=\"$user\"/>$CR"$'\n'; fi
+  out+="<PITime UTCSeconds=\"$t\" LocalDate=\"$local\" />$CR"$'\n'
+  if [ "$datarec" = 1 ]; then
+    # snapshot/archive change: the edited event's TimeStamp is three days earlier and must NOT be used for routing
+    evt=$((t - 259200)); evtl=$(date -d @$evt +%Y-%m-%dT%H:%M:%S%:z)
+    out+="<PITimeSeriesDB>$CR"$'\n'"<PISnapshot>$CR"$'\n'"<PointValue Action=\"$action\">$CR"$'\n'"<PIPoint PointID=\"15992\"/>$CR"$'\n'"<PIValue>$CR"$'\n'
+    out+="<TimeStamp UTCSeconds=\"$evt\" LocalDate=\"$evtl\" />$CR"$'\n'
+    out+="<Value>$CR"$'\n'"<Before Type=\"xs:float\">200.2</Before>$CR"$'\n'"<After Type=\"xs:string\">$detail</After>$CR"$'\n'"</Value>$CR"$'\n'
+    out+="</PIValue>$CR"$'\n'"</PointValue>$CR"$'\n'"</PISnapshot>$CR"$'\n'"</PITimeSeriesDB>$CR"$'\n'
+  else
+    out+="<PIConfigurationDB>$CR"$'\n'"<PIPoints Action=\"$action\">$CR"$'\n'"<PIPoint PointID=\"17838\" Name=\"sinusoid\">$CR"$'\n'
+    [ -n "$FAKE_PIDIAG_EXTRA" ] && out+="<Comment>hello</Comment>$CR"$'\n'
+    out+="<PointAttributes>$CR"$'\n'
+    out+="<PointAttribute Name=\"descriptor\">$CR"$'\n'"<Value>$CR"$'\n'"<After Type=\"xs:string\">$detail</After>$CR"$'\n'"</Value>$CR"$'\n'"</PointAttribute>$CR"$'\n'
+    out+="</PointAttributes>$CR"$'\n'"</PIPoint>$CR"$'\n'"</PIPoints>$CR"$'\n'"</PIConfigurationDB>$CR"$'\n'
+  fi
+  out+="</AuditRecord>$CR"$'\n'"$CR"$'\n'
+  exported=$((exported+1))
+done < "$path"
+out+="$CR"$'\n'"<RecordsExported>$exported</RecordsExported>$CR"$'\n'
+out+="</AuditRecords>$CR"$'\n'
+out+="</PIAudit>$CR"$'\n'
+case "$FAKE_PIDIAG_ENCODING" in
+  ansi|ansi-nodecl) printf '%s' "$out" | iconv -f UTF-8 -t WINDOWS-1252;;
+  *) printf '%s' "$out";;
+esac

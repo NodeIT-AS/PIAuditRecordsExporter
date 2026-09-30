@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PIAudit xmlns="xml.osisoft.com-schemas-piaudit" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="xml.osisoft.com-schemas-piaudit http://xml.osisoft.com/Schemas/PIAudit">
+<PIServer IPHost="nodeitpi" IPAddress="192.168.100.100"/>
+<ExportDate UTCSeconds="1789558908" LocalDate="2026-09-16T13:41:48+02:00"/>
+<OSUser Domain="NODEITLAB" Name="dannar" />
+<AuditRecords ExportFileName="F:\logs\Work\inspect\pisnapss\pisnapssAudit.dat" RecordCount="9" AuditFileName="C:\Program Files\PI\log\pisnapssAudit.dat" CreationDate="2026-06-12T13:04:54+02:00" Mask="ffffffffh">
+
+<AuditRecord AuditRecordID="8a274802-009e-4e3a-b4bb-2de4cee65c95">
+<PIUser UserID="17" Name="NODEITLAB\andre"/>
+<PITime UTCSeconds="1781262635" LocalDate="2026-06-12T13:10:35+02:00" />
+<PITimeSeriesDB>
+<PIArchive>
+<PointValue Action="EditAttempt">
+<PIPoint PointID="15992"/>
+<PIValue>
+<TimeStamp UTCSeconds="1778587200" LocalDate="2026-05-12T14:00:00+02:00" />
+<Value>
+<After Type="xs:float">100.1</After>
+</Value>
+</PIValue>
+</PointValue>
+</PIArchive>
+</PITimeSeriesDB>
+</AuditRecord>
+
+<AuditRecord AuditRecordID="6582a56e-d52f-481d-8de4-60d277924a5c">
+<PIUser UserID="17" Name="NODEITLAB\andre"/>
+<PITime UTCSeconds="1781262691" LocalDate="2026-06-12T13:11:31+02:00" />
+<PITimeSeriesDB>
+<PIArchive>
+<PointValue Action="EditAttempt">
+<PIPoint PointID="15992"/>
+<PIValue>
+<TimeStamp UTCSeconds="1778587200" LocalDate="2026-05-12T14:00:00+02:00" />
+<Value>
+<After Type="xs:float">100.1</After>
+</Value>
+</PIValue>
+</PointValue>
+</PIArchive>
+</PITimeSeriesDB>
+</AuditRecord>
+
+<AuditRecord AuditRecordID="9b5c6bd4-aae8-438b-8d3a-39f521c9473b">
+<PIUser UserID="17" Name="NODEITLAB\andre"/>
+<PITime UTCSeconds="1781262726" LocalDate="2026-06-12T13:12:06+02:00" />
+<PITimeSeriesDB>
+<PIArchive>
+<PointValue Action="EditAttempt">
+<PIPoint PointID="15992"/>
+<PIValue>
+<TimeStamp UTCSeconds="1778587200" LocalDate="2026-05-12T14:00:00+02:00" />
+<Value>
+<After Type="xs:float">200.</After>
+</Value>
+</PIValue>
+</PointValue>
+</PIArchive>
+</PITimeSeriesDB>
+</AuditRecord>
+
+<AuditRecord AuditRecordID="a25922ed-14d0-4b68-9824-e515d9eac3cc">
+<PIUser UserID="17" Name="NODEITLAB\andre"/>
+<PITime UTCSeconds="1781262726" LocalDate="2026-06-12T13:12:06+02:00" />
+<PITimeSeriesDB>
+<PISnapshot>
+<PointValue Action="Edit">
+<PIPoint PointID="15992"/>
+<PIValue>
+<TimeStamp UTCSeconds="1778590800" LocalDate="2026-05-12T15:00:00+02:00" />
+<Value>
+<Before Type="xs:float">200.2</Before>
+<After Type="xs:float">150.</After>
+</Value>
+<Flags>
+<Before Type="piaudit:nullType"></Before>
+<After Type="xs:string">S</After>
+</Flags>
+</PIValue>
+</PointValue>
+</PISnapshot>
+</PITimeSeriesDB>
+</AuditRecord>
+
+<AuditRecord AuditRecordID="835b8ea3-f2ef-407e-ba47-e8fda17aaf8f">
+<PIUser UserID="17" Name="NODEITLAB\andre"/>
+<PITime UTCSeconds="1781262849" LocalDate="2026-06-12T13:14:09+02:00" />
+<PITimeSeriesDB>
+<PIArchive>
+<PointValue Action="EditAttempt">
+<PIPoint PointID="15992"/>
+<PIValue>
+<TimeStamp UTCSeconds="1778587200" LocalDate="2026-05-12T14:00:00+02:00" />
+<Value>
+<After Type="xs:float">100.1</After>
+</Value>
+</PIValue>
+</PointValue>
+</PIArchive>
+</PITimeSeriesDB>
+</AuditRecord>
+
+<AuditRecord AuditRecordID="2e07d739-134d-425f-a58f-e3fa5a331972">
+<PIUser UserID="17" Name="NODEITLAB\andre"/>
+<PITime UTCSeconds="1781262849" LocalDate="2026-06-12T13:14:09+02:00" />
+<PITimeSeriesDB>
+<PISnapshot>
+<PointValue Action="Edit">
+<PIPoint PointID="15992"/>
+<PIValue>
+<TimeStamp UTCSeconds="1778590800" LocalDate="2026-05-12T15:00:00+02:00" />
+<Value>
+<Before Type="xs:float">150.</Before>
+<After Type="xs:float">200.2</After>
+</Value>
+</PIValue>
+</PointValue>
+</PISnapshot>
+</PITimeSeriesDB>
+</AuditRecord>
+
+<AuditRecord AuditRecordID="20752dc2-4493-4828-8921-9fe6cb0ffbe2">
+<PIUser UserID="1" Name="piadmin"/>
+<PITime UTCSeconds="1786013546" LocalDate="2026-08-06T12:52:26+02:00" />
+<PITimeSeriesDB>
+<PISnapshot>
+<PointValue Action="Remove">
+<PIPoint PointID="17838"/>
+<PIValue>
+<TimeStamp UTCSeconds="1786013521" LocalDate="2026-08-06T12:52:01+02:00" />
+<Status>
+<Before Type="piaudit:DigitalStateType" StateSetID="0" DigitalStateCode="253"/>
+<After Type="piaudit:nullType"></After>
+</Status>
+</PIValue>
+</PointValue>
+</PISnapshot>
+</PITimeSeriesDB>
+</AuditRecord>
+
+<AuditRecord AuditRecordID="ad039691-1466-4adb-868e-04ed3b7b8dfe">
+<PIUser UserID="1" Name="piadmin"/>
+<PITime UTCSeconds="1786353911" LocalDate="2026-08-10T11:25:11+02:00" />
+<PITimeSeriesDB>
+<PISnapshot>
+<PointValue Action="Remove">
+<PIPoint PointID="17839"/>
+<PIValue>
+<TimeStamp UTCSeconds="1786353893" LocalDate="2026-08-10T11:24:53+02:00" />
+<Status>
+<Before Type="piaudit:DigitalStateType" StateSetID="0" DigitalStateCode="253"/>
+<After Type="piaudit:nullType"></After>
+</Status>
+</PIValue>
+</PointValue>
+</PISnapshot>
+</PITimeSeriesDB>
+</AuditRecord>
+
+<AuditRecord AuditRecordID="7cbc182d-67d5-4f8a-9920-8a0a43866c1a">
+<PIUser UserID="1" Name="piadmin"/>
+<PITime UTCSeconds="1787135164" LocalDate="2026-08-19T12:26:04+02:00" />
+<PITimeSeriesDB>
+<PISnapshot>
+<PointValue Action="Remove">
+<PIPoint PointID="17840"/>
+<PIValue>
+<TimeStamp UTCSeconds="1787134425" LocalDate="2026-08-19T12:13:45+02:00" />
+<Status>
+<Before Type="piaudit:DigitalStateType" StateSetID="0" DigitalStateCode="253"/>
+<After Type="piaudit:nullType"></After>
+</Status>
+</PIValue>
+</PointValue>
+</PISnapshot>
+</PITimeSeriesDB>
+</AuditRecord>
+
+<RecordsExported>9</RecordsExported>
+</AuditRecords>
+</PIAudit>
